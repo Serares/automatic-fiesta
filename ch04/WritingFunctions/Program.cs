@@ -1,7 +1,8 @@
 ﻿using static System.Console;
 
 // TimesTable(number: 6);
-RunFactorial();
+// RunFactorial();
+RunFibFunctional();
 
 static void TimesTable(byte number = 5)
 {
@@ -42,17 +43,20 @@ static decimal CalculateTax(decimal amount, string twoLetterRegionCode)
 
 static int Factorial(int number)
 {
-    if (number < 1)
+    checked
     {
-        return 0;
-    }
-    else if (number == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return number * Factorial(number - 1);
+        if (number < 1)
+        {
+            return 0;
+        }
+        else if (number == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return number * Factorial(number - 1);
+        }
     }
 }
 
@@ -60,6 +64,29 @@ static void RunFactorial()
 {
     for (int i = 1; i < 15; i++)
     {
-        WriteLine($"{i}! = {Factorial(i):N0}");
+        try
+        {
+            WriteLine($"{i}! = {Factorial(i):N0}");
+        }
+        catch (OverflowException ofex)
+        {
+            WriteLine($"Overflow exception caught for {i} running factorial {ofex.Message}");
+        }
+    }
+}
+
+static int FibFunctional(int term) =>
+term switch
+{
+    1 => 0,
+    2 => 1,
+    _ => FibFunctional(term - 1) + FibFunctional(term - 2)
+};
+
+static void RunFibFunctional()
+{
+    for (int i = 1; i < 15; i++)
+    {
+        WriteLine("{0} -> {1:N0}", arg0: i, arg1: FibFunctional(term: i));
     }
 }

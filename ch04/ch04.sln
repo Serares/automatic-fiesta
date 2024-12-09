@@ -7,13 +7,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex01", "ex01\ex01.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WritingFunctions", "WritingFunctions\WritingFunctions.csproj", "{173E51E3-A676-4750-A39C-D5B93ABC1BFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugging", "Debugging\Debugging.csproj", "{9BB080BE-61C9-4CED-9551-E8220C2BC96B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instrumenting", "Instrumenting\Instrumenting.csproj", "{56797A99-6679-48FC-BD0F-3158183BF914}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLib", "CalculatorLib\CalculatorLib.csproj", "{E9314520-FC44-4F36-BDC9-EEE772A11D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLibTests", "CalculatorLibTests\CalculatorLibTests.csproj", "{C575D31A-F1BC-42BB-9BE2-8D9FA3609473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallStackExceptionHandlingLib", "CallStackExceptionHandlingLib\CallStackExceptionHandlingLib.csproj", "{8FBFA695-B39B-4B53-A811-BBC2EC5396B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallStackExceptionHandling", "CallStackExceptionHandling\CallStackExceptionHandling.csproj", "{957C2140-CE90-48F0-900B-1097130968EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{118638B5-AA09-4CCB-8C88-6E60259B9661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +33,32 @@ Global
 		{173E51E3-A676-4750-A39C-D5B93ABC1BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{173E51E3-A676-4750-A39C-D5B93ABC1BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{173E51E3-A676-4750-A39C-D5B93ABC1BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BB080BE-61C9-4CED-9551-E8220C2BC96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BB080BE-61C9-4CED-9551-E8220C2BC96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BB080BE-61C9-4CED-9551-E8220C2BC96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BB080BE-61C9-4CED-9551-E8220C2BC96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56797A99-6679-48FC-BD0F-3158183BF914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56797A99-6679-48FC-BD0F-3158183BF914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56797A99-6679-48FC-BD0F-3158183BF914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56797A99-6679-48FC-BD0F-3158183BF914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9314520-FC44-4F36-BDC9-EEE772A11D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9314520-FC44-4F36-BDC9-EEE772A11D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9314520-FC44-4F36-BDC9-EEE772A11D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9314520-FC44-4F36-BDC9-EEE772A11D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C575D31A-F1BC-42BB-9BE2-8D9FA3609473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C575D31A-F1BC-42BB-9BE2-8D9FA3609473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C575D31A-F1BC-42BB-9BE2-8D9FA3609473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C575D31A-F1BC-42BB-9BE2-8D9FA3609473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FBFA695-B39B-4B53-A811-BBC2EC5396B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FBFA695-B39B-4B53-A811-BBC2EC5396B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FBFA695-B39B-4B53-A811-BBC2EC5396B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FBFA695-B39B-4B53-A811-BBC2EC5396B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{957C2140-CE90-48F0-900B-1097130968EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957C2140-CE90-48F0-900B-1097130968EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957C2140-CE90-48F0-900B-1097130968EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{957C2140-CE90-48F0-900B-1097130968EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
