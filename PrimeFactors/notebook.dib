@@ -1,0 +1,19 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+string myString = "2 2 ";
+string[] splittedString = myString.Split(" ");
+
+foreach (string s in splittedString) {
+    Console.Write($"strings: {s}");
+}
+Console.WriteLine($"splitted string: {splittedString}");
+
+#!csharp
+
+string joinedString = string.Join("X", splittedString);
+
+Console.WriteLine($"{joinedString}")
