@@ -1,4 +1,5 @@
-﻿using Spectre.Console; // used for Table;
+﻿using System.Text;
+using Spectre.Console; // used for Table;
 
 #region Handling cross-platform env and filesystems
 
@@ -112,9 +113,9 @@ WriteLine($"Working with: {textFile}");
 WriteLine($"Does it exist? {File.Exists(textFile)}");
 
 // Create a new text file and write a line to it.
-StreamWriter textWriter = File.CreateText(textFile);
-textWriter.WriteLine("Hello, C#!");
-textWriter.Close(); // Close file and release resources.
+StreamWriter writer = new StreamWriter(textFile, false, Encoding.ASCII);
+writer.WriteLine("Hello, C#!");
+writer.Close(); // Close file and release resources.
 WriteLine($"Does it exist? {File.Exists(textFile)}");
 
 // Copy the file, and overwrite if it already exists.
@@ -130,7 +131,7 @@ ReadKey(intercept: true);
 // Delete the file.
 File.Delete(textFile);
 WriteLine($"Does it exist? {File.Exists(textFile)}");
-File.Open("", FileMode.Append, FileAccess.Read);
+// File.Open("", FileMode.Append, FileAccess.Read);
 // Read from the text file backup.
 WriteLine($"Reading contents of {backupFile}:");
 StreamReader textReader = File.OpenText(backupFile);
