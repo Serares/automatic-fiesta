@@ -2,12 +2,12 @@ namespace MyLibrary.Shared;
 using System.Xml.Serialization; // To use [XmlAttribute].
 [XmlInclude(typeof(Circle))]
 [XmlInclude(typeof(Rectangle))]
-public class Shape
+public abstract class Shape
 {
     public Shape() { }
     [XmlAttribute("color")]
     public string? Color { get; set; }
-    public virtual string? Area { get; }
+    public abstract string? Area { get; } // 💡 can make this abstract in an abstract class to enforce subclasses to implement this
 }
 
 public class Rectangle : Shape
