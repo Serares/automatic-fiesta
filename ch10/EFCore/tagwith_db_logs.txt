@@ -5,7 +5,7 @@ dbug: 12/14/2024 11:19:05.922 RelationalEventId.CommandExecuting[20100] (Microso
       SELECT EXISTS (
           SELECT 1
           FROM "Categories" AS "c")
-dbug: 12/14/2024 11:19:06.010 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+dbug: 12/14/2024 11:19:06.010 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command)  
       Executing DbCommand [Parameters=[@__stock_0='100' (Nullable = true) (DbType = Int16)], CommandType='Text', CommandTimeout='30']
       -- Categories with products:
       

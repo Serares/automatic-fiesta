@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore; // To use Include method.
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Northwind.EntityModels;
 
 partial class Program
@@ -8,7 +9,8 @@ partial class Program
         using NorthwindDb db = new();
         SectionTitle("Categories and how many products they have");
         // A query to get all categories and their related products.
-        IQueryable<Category>? categories = db.Categories?.Include(c => c.Products);
+        IQueryable<Category>? categories = db.Categories;
+        // .Include(c => c.Products);
         // ❗the order of the clauses here is important
         if (categories is null || !categories.Any())
         {
@@ -85,5 +87,81 @@ partial class Program
             "{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
             p.ProductId, p.ProductName, p.Cost, p.Stock);
         }
+    }
+
+    private static void GettingOneProduct()
+    {
+        using NorthwindDb db = new();
+        SectionTitle("Getting a single product");
+        string? input;
+        int id;
+        do
+        {
+            Write("Enter a product ID: ");
+            input = ReadLine();
+        } while (!int.TryParse(input, out id));
+
+        Product? product = db.Products?.First(product => product.ProductId == id);
+
+        Info($"First: {product?.ProductName}");
+
+        if (product is null) Fail("No product found using First.");
+
+        product = db.Products?.Single(product => product.ProductId == id);
+
+        Info($"Single: {product?.ProductName}");
+
+        if (product is null) Fail("No product found using Single.");
+    }
+
+    private static void QueryingWithLike()
+    {
+        using NorthwindDb db = new();
+
+        SectionTitle("Pattern matching with LIKE");
+
+        Write("Enter part of a product name: ");
+        string? input = ReadLine();
+
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            Fail("You did not enter part of a product name.");
+            return;
+        }
+
+        IQueryable<Product>? products = db.Products?
+          .Where(p => EF.Functions.Like(p.ProductName, $"%{input}%"));
+
+        if (products is null || !products.Any())
+        {
+            Fail("No products found.");
+            return;
+        }
+
+        foreach (Product p in products)
+        {
+            WriteLine("{0} has {1} units in stock. Discontinued: {2}",
+              p.ProductName, p.Stock, p.Discontinued);
+        }
+    }
+
+    private static void GetRandomProduct()
+    {
+        using NorthwindDb db = new();
+        SectionTitle("Get a random product");
+        int? rowCount = db.Products?.Count();
+        if (rowCount is null)
+        {
+            Fail("Products table is empty.");
+            return;
+        }
+        Product? p = db.Products?.FirstOrDefault(
+        p => p.ProductId == (int)(EF.Functions.Random() * rowCount));
+        if (p is null)
+        {
+            Fail("Product not found.");
+            return;
+        }
+        WriteLine($"Random product: {p.ProductId} - {p.ProductName}");
     }
 }
