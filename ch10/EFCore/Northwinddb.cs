@@ -35,6 +35,10 @@ public class NorthwindDb : DbContext
         .IsRequired()
         .HasMaxLength(15);
 
+        // A global filter to remove discontinued products.
+        modelBuilder.Entity<Product>()
+        .HasQueryFilter(p => !p.Discontinued);
+
         // SQLite specific configuration
         if (Database.ProviderName?.Contains("Sqlite") ?? false)
         {
