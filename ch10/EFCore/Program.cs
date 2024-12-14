@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 // configure trace to log db logs
 Trace.Listeners.Add(
     new TextWriterTraceListener(
-        File.CreateText(Path.Combine(Environment.CurrentDirectory, "db_logs.txt"))
+        File.CreateText(Path.Combine(Environment.CurrentDirectory, "lazy_loading_queries_db_logs.txt"))
         ));
 Trace.AutoFlush = true;
 

@@ -1,0 +1,49 @@
+dbug: 12/14/2024 12:10:24.756 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Categories" AS "c")
+dbug: 12/14/2024 12:10:24.826 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CategoryId", "c"."CategoryName", "c"."Description"
+      FROM "Categories" AS "c"
+dbug: 12/14/2024 12:10:24.899 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='1'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0
+dbug: 12/14/2024 12:10:24.922 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='2'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0
+dbug: 12/14/2024 12:10:24.923 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='3'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0
+dbug: 12/14/2024 12:10:24.923 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='4'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0
+dbug: 12/14/2024 12:10:24.924 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='5'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0
+dbug: 12/14/2024 12:10:24.925 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='6'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0
+dbug: 12/14/2024 12:10:24.925 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='7'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0
+dbug: 12/14/2024 12:10:24.925 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__p_0='8'], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE NOT ("p"."Discontinued") AND "p"."CategoryId" = @__p_0

@@ -24,6 +24,15 @@ public class NorthwindDb : DbContext
             .EnableDetailedErrors()
 #endif
         ;
+        /*
+        // Microsoft.EntityFrameworkCore.Proxies
+            use this method to Lazy Load db data
+            Now, every time the loop enumerates and an attempt is made to read the Products property,
+the lazy loading proxy will check if they are loaded. If they’re not loaded, it will load them for
+us “lazily” by executing a SELECT statement to load just that set of products for the current
+category, and then the correct count will be returned to the output.
+        */
+        optionsBuilder.UseLazyLoadingProxies();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
