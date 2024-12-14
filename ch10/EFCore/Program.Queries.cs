@@ -33,7 +33,9 @@ partial class Program
             Write("Enter a minimum for units in stock: ");
             input = ReadLine();
         } while (!int.TryParse(input, out stock));
-        IQueryable<Category>? categories = db.Categories?.Include(c => c.Products.Where(p => p.Stock >= stock));
+        IQueryable<Category>? categories = db.Categories?
+        .TagWith("Categories with products:")
+        .Include(c => c.Products.Where(p => p.Stock >= stock));
         if (categories is null || !categories.Any())
         {
             Fail("No categories found.");
@@ -66,6 +68,7 @@ partial class Program
         } while (!decimal.TryParse(input, out price));
 
         IQueryable<Product>? products = db.Products?
+        .TagWith("Products by price")
         .Where(product => product.Cost > price)
         .OrderByDescending(product => product.Cost);
 
