@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.EntityFrameworkCore.Diagnostics; // use Relational event Id
 namespace Northwind.EntityModels;
 
 public class NorthwindDb : DbContext
@@ -17,7 +17,8 @@ public class NorthwindDb : DbContext
         WriteLine($"Connection: {connectionString}");
         optionsBuilder.UseSqlite(connectionString);
 
-        optionsBuilder.LogTo((message) => Trace.WriteLine(message))
+        optionsBuilder.LogTo((message) => Trace.WriteLine(message),
+        [RelationalEventId.CommandExecuting])
 #if DEBUG
             .EnableSensitiveDataLogging() // include SQL parameters
             .EnableDetailedErrors()

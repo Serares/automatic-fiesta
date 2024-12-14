@@ -1,0 +1,27 @@
+dbug: 12/14/2024 11:15:39.673 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Categories" AS "c")
+dbug: 12/14/2024 11:15:39.759 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__stock_0='100' (Nullable = true) (DbType = Int16)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CategoryId", "c"."CategoryName", "c"."Description", "p0"."ProductId", "p0"."CategoryId", "p0"."UnitPrice", "p0"."Discontinued", "p0"."ProductName", "p0"."UnitsInStock"
+      FROM "Categories" AS "c"
+      LEFT JOIN (
+          SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+          FROM "Products" AS "p"
+          WHERE "p"."UnitsInStock" >= @__stock_0
+      ) AS "p0" ON "c"."CategoryId" = "p0"."CategoryId"
+      ORDER BY "c"."CategoryId"
+dbug: 12/14/2024 11:15:40.567 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__price_0='100' (Nullable = true)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Products" AS "p"
+          WHERE "p"."UnitPrice" > @__price_0)
+dbug: 12/14/2024 11:15:40.577 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__price_0='100' (Nullable = true)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+      FROM "Products" AS "p"
+      WHERE "p"."UnitPrice" > @__price_0
+      ORDER BY "p"."UnitPrice" DESC
