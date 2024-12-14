@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
 namespace Northwind.EntityModels;
@@ -15,6 +16,13 @@ public class NorthwindDb : DbContext
 
         WriteLine($"Connection: {connectionString}");
         optionsBuilder.UseSqlite(connectionString);
+
+        optionsBuilder.LogTo((message) => Trace.WriteLine(message))
+#if DEBUG
+            .EnableSensitiveDataLogging() // include SQL parameters
+            .EnableDetailedErrors()
+#endif
+        ;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
