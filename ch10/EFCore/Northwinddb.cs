@@ -32,7 +32,7 @@ the lazy loading proxy will check if they are loaded. If they’re not loaded, i
 us “lazily” by executing a SELECT statement to load just that set of products for the current
 category, and then the correct count will be returned to the output.
         */
-        optionsBuilder.UseLazyLoadingProxies();
+        // optionsBuilder.UseLazyLoadingProxies();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

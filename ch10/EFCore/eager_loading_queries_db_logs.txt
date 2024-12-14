@@ -1,0 +1,15 @@
+dbug: 12/14/2024 12:13:14.957 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Categories" AS "c")
+dbug: 12/14/2024 12:13:15.038 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CategoryId", "c"."CategoryName", "c"."Description", "p0"."ProductId", "p0"."CategoryId", "p0"."UnitPrice", "p0"."Discontinued", "p0"."ProductName", "p0"."UnitsInStock"
+      FROM "Categories" AS "c"
+      LEFT JOIN (
+          SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice", "p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+          FROM "Products" AS "p"
+          WHERE NOT ("p"."Discontinued")
+      ) AS "p0" ON "c"."CategoryId" = "p0"."CategoryId"
+      ORDER BY "c"."CategoryId"

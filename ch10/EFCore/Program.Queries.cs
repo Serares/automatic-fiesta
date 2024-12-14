@@ -9,8 +9,8 @@ partial class Program
         using NorthwindDb db = new();
         SectionTitle("Categories and how many products they have");
         // A query to get all categories and their related products.
-        IQueryable<Category>? categories = db.Categories;
-        // .Include(c => c.Products);
+        IQueryable<Category>? categories = db.Categories?
+        .Include(c => c.Products);
         // ❗the order of the clauses here is important
         if (categories is null || !categories.Any())
         {
