@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.ChangeTracking; // To use CollectionEntry.
 using Microsoft.EntityFrameworkCore; // To use Include method.
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Northwind.EntityModels;
@@ -9,8 +10,28 @@ partial class Program
         using NorthwindDb db = new();
         SectionTitle("Categories and how many products they have");
         // A query to get all categories and their related products.
-        IQueryable<Category>? categories = db.Categories?
-        .Include(c => c.Products);
+        IQueryable<Category>? categories;
+        // db.Categories?
+        // .Include(c => c.Products);
+
+        db.ChangeTracker.LazyLoadingEnabled = false;
+        Write("Enable eager loading? (Y/N):");
+        bool eagerLoading = (ReadKey().Key == ConsoleKey.Y);
+        bool explicitLoading = false;
+        WriteLine();
+
+        if (eagerLoading)
+        {
+            categories = db.Categories?.Include(c => c.Products);
+        }
+        else
+        {
+            categories = db.Categories;
+            Write("Enable explicit loading? (Y/N): ");
+            explicitLoading = (ReadKey().Key == ConsoleKey.Y);
+            WriteLine();
+        }
+
         // ❗the order of the clauses here is important
         if (categories is null || !categories.Any())
         {
@@ -20,6 +41,18 @@ partial class Program
         // Execute query and enumerate results.
         foreach (Category c in categories)
         {
+            if (explicitLoading)
+            {
+                Write($"Explicitly load products for {c.CategoryName}? (Y/N): ");
+                ConsoleKeyInfo key = ReadKey();
+                WriteLine();
+                if (key.Key == ConsoleKey.Y)
+                {
+                    CollectionEntry<Category, Product> products =
+                    db.Entry(c).Collection(c2 => c2.Products);
+                    if (!products.IsLoaded) products.Load();
+                }
+            }
             WriteLine($"{c.CategoryName} has {c.Products.Count} products.");
         }
     }
