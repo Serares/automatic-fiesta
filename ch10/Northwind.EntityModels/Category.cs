@@ -12,9 +12,11 @@ public class Category
 
     // Defines a navigation property for related rows.
     /*
-    The two properties that relate the two entities, Category.Products and Product.Category, are both
-marked as virtual. This allows EF Core to inherit and override the properties to provide extra features,
-such as lazy loading.
+    The two properties that relate the two entities, 
+    Category.Products and Product.Category, are both marked as virtual. 
+    This allows EF Core to inherit and override 
+    the properties to provide extra features,
+    such as lazy loading.
     */
     public virtual ICollection<Product> Products { get; set; }
     // To enable developers to add products to a Category, we must
