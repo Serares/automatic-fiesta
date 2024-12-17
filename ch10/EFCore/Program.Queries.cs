@@ -14,7 +14,7 @@ partial class Program
         // db.Categories?
         // .Include(c => c.Products);
 
-        db.ChangeTracker.LazyLoadingEnabled = false;
+        // db.ChangeTracker.LazyLoadingEnabled = false;
         Write("Enable eager loading? (Y/N):");
         bool eagerLoading = (ReadKey().Key == ConsoleKey.Y);
         bool explicitLoading = false;
